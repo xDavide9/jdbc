@@ -1,11 +1,21 @@
+# these values are properties we created
+# not spring boot properties
 app:
-  datasource:
+  datasource:  # datasource is what allows us to connect to the database
+    # it picks a connection from what's called a connection pool
+    # where some configurations are already available (because creating a connection is an expensive operation)
     main:
       driver-class-name: org.postgresql.Driver
       jdbc-url: jdbc:postgresql://localhost:5432/amigoscode
       username: amigoscode
       password: 'password'
-      pool-size: 30
+      pool-size: 30   # how many connection to have in the pool
+
+spring:
+  flyway:
+    locations: classpath:db/migration   # this is default for production
+    # we could configure another set of migrations in another applicaition-dev.yml using
+    # spring.profiles and run those migrations only for testing purposes
 
 server:
   error:

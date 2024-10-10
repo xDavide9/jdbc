@@ -15,6 +15,10 @@ public class MovieDataAccessService implements MovieDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+//    once JDBC template is configured and we have an implementation of RowMapper
+//    we are just left with writing sql queries
+//    following the guidelines of the DAO interface
+
     @Override
     public List<Movie> selectMovies() {
         var sql = """
